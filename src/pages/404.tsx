@@ -1,6 +1,5 @@
-import React from "react";
 import Link from "next/link";
-import { Logo } from "src/icons";
+import React from "react";
 
 export default function NotFound() {
     return (
@@ -9,10 +8,7 @@ export default function NotFound() {
                 <div className="container">
                     <div className="flex flex-wrap">
                         <div className="w-full px-4">
-                            <div
-                                className="wow fadeInUp relative mx-auto max-w-[850px] overflow-hidden rounded-lg bg-white py-20 px-8 text-center shadow-lg sm:px-12 md:px-[60px]"
-                                data-wow-delay=".2s"
-                            >
+                            <div className="relative mx-auto max-w-[850px] overflow-hidden rounded-lg bg-white py-20 px-8 text-center shadow-lg sm:px-12 md:px-[60px]">
                                 <h2 className="mb-8 text-3xl font-bold text-dark sm:text-4xl lg:text-[40px] xl:text-[42px]">
                                     404 - We couldn't find that page.
                                 </h2>

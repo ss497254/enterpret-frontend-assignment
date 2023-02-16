@@ -40,3 +40,4 @@ the output of each query will be a rule_group and a rule_group can a have a arra
 each rule will be joined based on the conjuction provided, and rules when combined will form bigger rule group.
 
 If it's complex you can watch the video attached.
+<a href="https://drive.google.com/file/d/195VqII7YSgYZxICvF3OasTFWCey_pH0W/view?usp=sharing"> Video Link </a>
