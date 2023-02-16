@@ -10,7 +10,7 @@ export default function Home() {
             <Header />
             <div className="max-w-6xl mx-auto f">
                 <SideBar />
-                <div className="w-full pt-8">
+                <div className="w-full pt-8" style={{ maxWidth: "916px" }}>
                     <ActionBar />
                     <QueryContainer />
                 </div>

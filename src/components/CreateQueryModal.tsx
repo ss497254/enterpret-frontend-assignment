@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CloseIcon } from "src/icons";
+import { useQueryStore } from "src/stores/useQueryStore";
+import { ruleGroupStore, getRuleGroups } from "src/stores/RuleGroupStore";
 import { Button } from "./Button";
 import { GroupFilterContainer } from "./GroupFilterContainer";
 import { Modal } from "./Modal";
@@ -9,14 +11,35 @@ interface props {
     setOpen: (x: boolean) => void;
 }
 
-export const CreateQueryModal: React.FC<props> = (props) => {
+export const CreateQueryModal: React.FC<props> = ({ open, setOpen }) => {
+    const { addQuery } = useQueryStore();
+
+    useEffect(() => {
+        ruleGroupStore.clear();
+    }, []);
+
+    const onFinish = () => {
+        const ruleGroups = getRuleGroups();
+
+        if (ruleGroups.length === 1) addQuery(ruleGroups[0]);
+        else if (ruleGroups.length > 1)
+            addQuery({
+                children: ruleGroups,
+                type: "rule_group",
+                conjunction: "AND",
+                not: false,
+            });
+
+        setOpen(false);
+    };
+
     return (
-        <Modal {...props}>
+        <Modal open={open} setOpen={setOpen}>
             {/* Header */}
             <div className="pl-8 pr-5 py-4 bg-indigo-500 w-[950px] rounded-t">
                 <div className="justify-between w-full mb-2 text-lg font-semibold f">
                     Build a query
-                    <button onClick={() => props.setOpen(false)}>
+                    <button onClick={() => setOpen(false)}>
                         <CloseIcon className="p-0.5 bg-indigo-800 bg-opacity-50 rounded-md" />
                     </button>
                 </div>
@@ -29,6 +52,7 @@ export const CreateQueryModal: React.FC<props> = (props) => {
                     more...{"   "}
                 </div>
             </div>
+
             {/* Content */}
             <GroupFilterContainer />
 
@@ -38,12 +62,12 @@ export const CreateQueryModal: React.FC<props> = (props) => {
                     title="Cancel"
                     btn="custom"
                     className="px-4 py-2 text-sm rounded-md bg-dark-700 hover:bg-dark-600"
-                    onClick={() => props.setOpen(false)}
+                    onClick={() => setOpen(false)}
                 />
                 <Button
                     title="Finish"
                     className="!px-4 !rounded-md"
-                    onClick={() => props.setOpen(false)}
+                    onClick={onFinish}
                 />
             </div>
         </Modal>

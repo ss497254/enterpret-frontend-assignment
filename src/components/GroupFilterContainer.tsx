@@ -10,7 +10,7 @@ export const GroupFilterContainer: React.FC<props> = () => {
     return (
         <div className="bg-dark-900 w-[950px] h-[60vh] rounded scrollbar-tiny overflow-y-scroll">
             {groupFilters.split(",").map((id) => (
-                <GroupFilter key={id} />
+                <GroupFilter key={id} id={id} />
             ))}
             <Button
                 title="+ Add new group filter"

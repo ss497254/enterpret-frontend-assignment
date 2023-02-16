@@ -17,12 +17,12 @@ export interface Rule {
         | "Is"
         | "Is not";
     value?: string;
-    // type: "rule";
+    type: "rule";
 }
 
 export interface RuleGroup {
-    children: Rule[];
+    children: (RuleGroup | Rule)[];
     conjunction: "AND" | "OR";
     not: boolean;
-    // type: "rule_group";
+    type: "rule_group";
 }

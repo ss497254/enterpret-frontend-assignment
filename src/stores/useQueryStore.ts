@@ -1,9 +1,9 @@
-import { Rule } from "src/types/query";
+import { RuleGroup } from "src/types/query";
 import { create } from "zustand";
 
 interface Queries {
-    queries: Rule[];
-    addQuery: (x: Rule) => void;
+    queries: RuleGroup[];
+    addQuery: (x: RuleGroup) => void;
 }
 
 export const useQueryStore = create<Queries>()((set) => ({

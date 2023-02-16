@@ -6,18 +6,19 @@ import { SelectInput } from "./SelectInput";
 interface props {
     id: string;
     onDelete?: () => void;
-    onRuleComplete: (x: Rule) => void;
+    onRuleChange: (x: Rule) => void;
 }
 
-export const Filter: React.FC<props> = ({ id, onDelete, onRuleComplete }) => {
-    const [rule, setRule] = useState<Partial<Rule>>({});
+export const Filter: React.FC<props> = ({ id, onDelete, onRuleChange }) => {
+    const [rule, setRule] = useState<Partial<Rule>>({ type: "rule" });
+    const firstFilter = id === "0";
 
     const onChange = (field: keyof Rule) => (value: string) => {
         setRule((r) => {
-            //@ts-ignore
+            // @ts-ignore
             r[field] = value;
 
-            if (r.condition && r.field && r.value) onRuleComplete(r);
+            if (r.condition && r.field && r.value) onRuleChange(r as Rule);
 
             return { ...r };
         });
@@ -65,7 +66,7 @@ export const Filter: React.FC<props> = ({ id, onDelete, onRuleComplete }) => {
                     "Product Feedback",
                 ]}
             />
-            {id === "0" ? (
+            {firstFilter ? (
                 <div className="w-11" />
             ) : (
                 <button
