@@ -21,7 +21,7 @@ export const Header = () => {
                 </button>
                 <div className="flex-1" />
                 <Image
-                    src="/user-1.jpg"
+                    src="/user.jpg"
                     className="rounded-full"
                     width={32}
                     height={32}
