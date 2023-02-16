@@ -4,11 +4,17 @@ import { CaretIcon } from "src/icons";
 interface props {
     options: string[];
     name: string;
+    value: string | undefined;
+    onChange: (value: string) => void;
 }
 
-export const SelectInput: React.FC<props> = ({ options, name }) => {
+export const SelectInput: React.FC<props> = ({
+    options,
+    name,
+    value = "",
+    onChange,
+}) => {
     const [open, setOpen] = useState(false);
-    const [value, setValue] = useState("");
 
     return (
         <div className="relative w-72">
@@ -35,7 +41,7 @@ export const SelectInput: React.FC<props> = ({ options, name }) => {
                     <button
                         onClick={() => {
                             setOpen(false);
-                            setValue(option);
+                            onChange(option);
                         }}
                         className="w-full px-3 py-2 text-left rounded-md hover:bg-dark-700"
                         key={idx}

@@ -8,7 +8,7 @@ export const GroupFilterContainer: React.FC<props> = () => {
     const [groupFilters, addGroupFilters] = useState("0");
 
     return (
-        <div className="bg-dark-900 pt-4 w-[950px] h-[60vh] rounded scrollbar-tiny overflow-y-scroll">
+        <div className="bg-dark-900 w-[950px] h-[60vh] rounded scrollbar-tiny overflow-y-scroll">
             {groupFilters.split(",").map((id) => (
                 <GroupFilter key={id} />
             ))}

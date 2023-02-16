@@ -1,7 +1,6 @@
 import React from "react";
 import { CloseIcon } from "src/icons";
 import { Button } from "./Button";
-import { GroupFilter } from "./GroupFilter";
 import { GroupFilterContainer } from "./GroupFilterContainer";
 import { Modal } from "./Modal";
 
@@ -14,7 +13,7 @@ export const CreateQueryModal: React.FC<props> = (props) => {
     return (
         <Modal {...props}>
             {/* Header */}
-            <div className="px-8 py-5 bg-indigo-500 w-[950px] rounded-t h-28">
+            <div className="pl-8 pr-5 py-4 bg-indigo-500 w-[950px] rounded-t">
                 <div className="justify-between w-full mb-2 text-lg font-semibold f">
                     Build a query
                     <button onClick={() => props.setOpen(false)}>
@@ -22,7 +21,7 @@ export const CreateQueryModal: React.FC<props> = (props) => {
                     </button>
                 </div>
                 <div className="items-center w-full f">
-                    <div className="flex-1 max-w-3xl px-2 py-1.5 mr-4 overflow-x-hidden bg-indigo-700 rounded whitespace-nowrap text-ellipsis bg-opacity-90">
+                    <div className="flex-1 text-sm max-w-3xl px-2 py-1.5 mr-4 overflow-x-hidden bg-indigo-700 rounded whitespace-nowrap text-ellipsis bg-opacity-90">
                         Query: “(field.theme) == \“Product Feedback”\” &&
                         “(field.theme) == \“Product Feedback”\” &&
                         “(field.theme) ==
@@ -32,7 +31,9 @@ export const CreateQueryModal: React.FC<props> = (props) => {
             </div>
             {/* Content */}
             <GroupFilterContainer />
-            <div className="justify-between px-4 pt-4 pb-6 mb-4 rounded bg-dark-900 f">
+
+            {/* Footer */}
+            <div className="justify-between px-4 pt-2 pb-4 mb-4 rounded bg-dark-900 f">
                 <Button
                     title="Cancel"
                     btn="custom"
@@ -48,31 +49,3 @@ export const CreateQueryModal: React.FC<props> = (props) => {
         </Modal>
     );
 };
-
-export interface Rule {
-    field?:
-        | "Theme"
-        | "Sub-theme"
-        | "Reason"
-        | "Language"
-        | "Source"
-        | "Rating"
-        | "Time Period"
-        | "Customer ID";
-    condition?:
-        | "Equals"
-        | "Does not equal"
-        | "Like"
-        | "Not like"
-        | "Is Empty"
-        | "Is"
-        | "Is not";
-    value?: string[];
-    type: "rule";
-}
-export interface RuleGroup {
-    children: (RuleGroup | Rule)[];
-    conjunction: "AND" | "OR";
-    not: boolean;
-    type: "rule_group";
-}
