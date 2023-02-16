@@ -35,6 +35,9 @@ body {
     }
 }
 
+/* 
+for group filter button
+ */
 .custom-top-bar::before {
     content: "";
     position: absolute;

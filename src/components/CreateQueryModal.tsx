@@ -15,14 +15,17 @@ export const CreateQueryModal: React.FC<props> = ({ open, setOpen }) => {
     const { addQuery } = useQueryStore();
 
     useEffect(() => {
+        // reseting the store
         ruleGroupStore.clear();
     }, []);
 
     const onFinish = () => {
         const ruleGroups = getRuleGroups();
 
+        // checking for multiple rule groups
         if (ruleGroups.length === 1) addQuery(ruleGroups[0]);
         else if (ruleGroups.length > 1)
+            // if has multiple rule groups then combine them.
             addQuery({
                 children: ruleGroups,
                 type: "rule_group",

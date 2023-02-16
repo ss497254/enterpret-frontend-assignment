@@ -11,10 +11,14 @@ interface props {
 const conjunctions = ["AND", "OR"] as const;
 
 export const GroupFilter: React.FC<props> = ({ id }) => {
+    // using string to render list of filters, as array is not primitive
     const [filters, setFilters] = useState("0");
     const [conjunction, setConjunction] = useState<"AND" | "OR">(
         conjunctions[0]
     );
+
+    // storing all filter values in map for easier access
+    // not using usestate as it doesn't need to render the component
     const rules = useRef(new Map());
 
     const updateRuleGroup = () => {
@@ -50,7 +54,7 @@ export const GroupFilter: React.FC<props> = ({ id }) => {
                 className="!rounded-md"
                 onClick={useCallback(() => {
                     setFilters((filters) => {
-                        filters += "," + Math.random().toString().substr(3, 8);
+                        filters += "," + Math.random().toString().substr(3, 5);
 
                         return filters;
                     });

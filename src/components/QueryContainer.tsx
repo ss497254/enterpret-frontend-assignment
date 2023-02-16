@@ -7,14 +7,12 @@ interface props {}
 export const QueryContainer: React.FC<props> = () => {
     const { queries } = useQueryStore();
 
-    console.log(queries);
-
     return (
-        <div className="">
+        <div className="pb-12">
             {queries.length ? (
                 queries.map((query, idx) => <Query key={idx} query={query} />)
             ) : (
-                <div className="min-h-[500px] c font-semibold text-xl">
+                <div className="min-h-[450px] c font-semibold text-xl">
                     No queries found!
                 </div>
             )}

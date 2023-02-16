@@ -11,6 +11,7 @@ interface props {
 
 export const Filter: React.FC<props> = ({ id, onDelete, onRuleChange }) => {
     const [rule, setRule] = useState<Partial<Rule>>({ type: "rule" });
+    // firstfilter don't have delete button acc. to figma design
     const firstFilter = id === "0";
 
     const onChange = (field: keyof Rule) => (value: string) => {
@@ -18,6 +19,7 @@ export const Filter: React.FC<props> = ({ id, onDelete, onRuleChange }) => {
             // @ts-ignore
             r[field] = value;
 
+            // check if rule is complete then call onRuleChange
             if (r.condition && r.field && r.value) onRuleChange(r as Rule);
 
             return { ...r };

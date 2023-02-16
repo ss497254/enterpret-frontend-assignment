@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { Logo } from "src/icons";
 
 export default function NotFound() {
     return (
