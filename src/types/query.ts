@@ -1,5 +1,5 @@
 export interface Rule {
-    field?:
+    field:
         | "Theme"
         | "Sub-theme"
         | "Reason"
@@ -8,7 +8,7 @@ export interface Rule {
         | "Rating"
         | "Time Period"
         | "Customer ID";
-    condition?:
+    condition:
         | "Equals"
         | "Does not equal"
         | "Like"
@@ -16,7 +16,7 @@ export interface Rule {
         | "Is Empty"
         | "Is"
         | "Is not";
-    value?: string;
+    value: string;
     type: "rule";
 }
 

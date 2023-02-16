@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { RuleGroup } from "src/types/query";
+import { stringifyRuleGroup } from "src/utils/convertRuleObjectToSting";
 import { CopyButton } from "./CopyButton";
 import { TabButtons } from "./TabButtons";
 
@@ -14,7 +15,7 @@ export const Query: React.FC<props> = ({ query }) => {
 
     const text =
         outputType === outputTypes[0]
-            ? JSON.stringify(query)
+            ? stringifyRuleGroup(query)
             : JSON.stringify(query, null, 2);
 
     return (
@@ -27,7 +28,9 @@ export const Query: React.FC<props> = ({ query }) => {
                 />
                 <CopyButton text={text} />
             </div>
-            <pre className="overflow-x-hidden text-ellipsis">{text}</pre>
+            <pre className="overflow-x-hidden whitespace-pre-wrap text-ellipsis">
+                {text}
+            </pre>
         </div>
     );
 };
