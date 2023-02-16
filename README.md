@@ -22,7 +22,7 @@ npm start
 
 ### Structure
 
-App has 2 only pages.
+App has two pages.
 
 -   index.tsx
 -   404.tsx

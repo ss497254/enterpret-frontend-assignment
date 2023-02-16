@@ -40,20 +40,15 @@ export const CreateQueryModal: React.FC<props> = ({ open, setOpen }) => {
         <Modal open={open} setOpen={setOpen}>
             {/* Header */}
             <div className="pl-8 pr-5 py-4 bg-indigo-500 w-[950px] rounded-t">
-                <div className="justify-between w-full mb-2 text-lg font-semibold f">
+                <div className="justify-between w-full text-lg font-semibold f">
                     Build a query
                     <button onClick={() => setOpen(false)}>
                         <CloseIcon className="p-0.5 bg-indigo-800 bg-opacity-50 rounded-md" />
                     </button>
                 </div>
-                <div className="items-center w-full f">
-                    <div className="flex-1 text-sm max-w-3xl px-2 py-1.5 mr-4 overflow-x-hidden bg-indigo-700 rounded whitespace-nowrap text-ellipsis bg-opacity-90">
-                        Query: “(field.theme) == \“Product Feedback”\” &&
-                        “(field.theme) == \“Product Feedback”\” &&
-                        “(field.theme) ==
-                    </div>
-                    more...{"   "}
-                </div>
+                <text className="text-sm text-white text-opacity-75">
+                    The query you build will be saved in your active view
+                </text>
             </div>
 
             {/* Content */}

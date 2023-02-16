@@ -14,7 +14,7 @@ export default function Logo(props: any) {
                 fillRule="evenodd"
                 clipRule="evenodd"
                 d="M0 29.9004H254.944V56.7366H0V29.9004ZM0 116.496H161.616V143.811H0V116.496ZM254.944 202.994H0V229.83H254.944V202.994Z"
-                fill-opacity="0.3"
+                fillOpacity="0.3"
             />
             <path
                 fillRule="evenodd"
