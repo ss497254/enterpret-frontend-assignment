@@ -19,6 +19,6 @@ export const Modal: React.FC<props> = ({ open, children, setOpen }) => {
         >
             <div onClick={(e) => e.preventDefault()}>{children}</div>
         </div>,
-        document.getElementById("__next")!
+        document.querySelector("body")!
     );
 };

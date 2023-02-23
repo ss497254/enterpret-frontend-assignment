@@ -23,11 +23,6 @@
         "baseUrl": ".",
         "incremental": true
     },
-    "include": [
-        "next-env.d.ts",
-        "src/**/*.ts",
-        "src/**/*.tsx",
-        "src/components/Testimoni.jsx"
-    ],
+    "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx"],
     "exclude": ["node_modules"]
 }

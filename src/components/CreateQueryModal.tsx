@@ -46,9 +46,9 @@ export const CreateQueryModal: React.FC<props> = ({ open, setOpen }) => {
                         <CloseIcon className="p-0.5 bg-indigo-800 bg-opacity-50 rounded-md" />
                     </button>
                 </div>
-                <text className="text-sm text-white text-opacity-75">
+                <p className="text-sm text-white text-opacity-75">
                     The query you build will be saved in your active view
-                </text>
+                </p>
             </div>
 
             {/* Content */}

@@ -20,6 +20,11 @@ body {
     width: 5px;
 }
 
+#__next {
+    height: 100vh;
+    overflow-y: scroll;
+}
+
 .scrollbar-tiny::-webkit-scrollbar-thumb {
     background-color: #8b8c8c;
     border-radius: 5px;
